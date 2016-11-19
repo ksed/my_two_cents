@@ -1,7 +1,11 @@
 var express = require('express');
 var server = express();
+var mongoose = require('mongoose');
 
 var port = process.env.PORT || 8080;
+var mongoURI = process.env.MONGOURI || require('./config.js').mongoURI;
+
+mongoose.connect(mongoURI); // establish connection to mongodb
 
 server.get('/', function(req, res) {
   res.send('I am working!');

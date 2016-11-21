@@ -41,8 +41,30 @@ router.post('/posts', function(req, res) {
     });
   });
 });
-router.put('/posts/:id', function(req, res) {});
-router.delete('/posts/:id', function(req, res) {});
+router.put('/posts/:id', function(req, res) {
+  Post.findOneAndUpdate({_id: req.params.id}, req.body, function(err, oldPost) {
+    if(err) {
+      return res.status(500).json({
+        err: err
+      });
+    }
+    return res.status(200).json({
+      oldPost: oldPost
+    });
+  });
+});
+router.delete('/posts/:id', function(req, res) {
+  Post.findOneAndRemove({_id: req.params.id}, function(err, deletedPost) {
+    if(err) {
+      return res.status(500).json({
+        err: err
+      });
+    }
+    return res.status(200).json({
+      deletedPost: deletedPost
+    });
+  });
+});
 
 
 module.exports = router;

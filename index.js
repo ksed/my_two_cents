@@ -15,8 +15,10 @@ mongoose.connect(mongoURI); // establish connection to mongodb
 mongoose.Promise = require('bluebird'); // bluebird used for promises for mongoose data
 
 // Routes
+server.use(express.static(__dirname + '/public'));
+
 server.get('/', function(req, res) {
-  res.sendFile('public/html/index.html');
+  res.sendFile('public/html/index.html', {root:__dirname});
 });
 
 server.use(postRouter);

@@ -6,10 +6,12 @@
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
   </head>
-  <body ng-controller="MainController">
-    <input type="text" name="test" ng-model="text">
-    <span>{{text}}</span>
-    <button type="button" name="button" ng-click="popUp()">Clicky</button>
+  <body>
+    <div ng-controller="MainController">
+      <pre ng-hide="posts.length > 100">
+        {{ posts | json }}
+      </pre>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
     <!-- <script src="http://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>

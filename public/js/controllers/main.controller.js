@@ -5,9 +5,11 @@
   MainController.$inject = ['$scope', 'PostService'];
 
   function MainController($scope, PostService) {
-    $scope.text = '';
-    $scope.popUp = function popUp() {
-      alert('You clicked me!');
-    };
+    $scope.posts = PostService.getAll();
+    $scope.$watch(function(){
+      return PostService.getAll();
+    }, function(){
+      $scope.posts = PostService.getAll();
+    });
   }
 }());

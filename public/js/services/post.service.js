@@ -6,6 +6,7 @@
 
   function PostService($http) {
     var posts = [];
+    var baseUrl = '/posts/';
     init();
     return {
       getAll: getAll,
@@ -16,9 +17,17 @@
     };
 
     function init() {
-
+      $http.get(baseUrl)
+          .then(function(res) {
+            posts = res.data.posts;
+          })
+          .catch(function(err) {
+            console.log(err);
+          });
     }
-    function getAll() {}
+    function getAll() {
+      return posts;
+    }
     function getOne(id) {}
     function create(newPost) {}
     function update(id, newPostData) {}

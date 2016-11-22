@@ -16,7 +16,7 @@ mongoose.Promise = require('bluebird'); // bluebird used for promises for mongoo
 
 // Routes
 server.get('/', function(req, res) {
-  res.send('I am working!');
+  res.sendFile('public/html/index.html');
 });
 
 server.use(postRouter);

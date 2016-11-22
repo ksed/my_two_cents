@@ -29,7 +29,16 @@
       return posts;
     }
     function getOne(id) {}
-    function create(newPost) {}
+    function create(newPost) {
+      $http.post(baseUrl, newPost)
+          .then(function(res) {
+            posts.push(newPost);
+            init();
+          })
+          .catch(function(err) {
+            console.log(err);
+          });
+    }
     function update(id, newPostData) {}
     function deleteOne(id) {}
   }

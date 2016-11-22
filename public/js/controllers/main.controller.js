@@ -16,7 +16,7 @@
 
     function createPost(newPost) {
       PostService.create(newPost);
-      $scope.newPost = '';
+      $scope.newPost = {};
     }
   }
 }());

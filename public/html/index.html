@@ -11,7 +11,7 @@
       <div>
         <label for="title">Title: <input type="text" id="title" ng-model='newPost.title'></label><br>
         <label for="author">Author: <input type="text" id="author" ng-model='newPost.author'></label><br>
-        <label for="body">Body: <input type="text" id="body" ng-model='newPost.body'></label><br>
+        <label for="body">Body: <textarea cols="30" rows="10" id="body" ng-model='newPost.body'></textarea></label><br>
         <button ng-click='createPost(newPost)'>Add New Post</button>
       </div>
       <pre>

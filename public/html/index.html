@@ -15,11 +15,22 @@
         <button ng-click='create(newPost)'>Add New Post</button>
       </div>
       <div class="test-form">
-        <label for="post-id">ID: <input type="text" id="post-id" ng-model='deleteId'> </label>
+        <label for="post-id">ID to delete: <input type="text" id="post-id" ng-model='deleteId'> </label>
         <button ng-click='delete(deleteId)'>Remove Post</button>
       </div>
       <div class="test-form">
-        <h4>My Posts:</h4>
+        <label for="gpost-id">ID to get: <input type="text" id="gpost-id" ng-model='getId'> </label>
+        <button ng-click='getOne(getId)'>Get Post</button>
+      </div>
+      <div class="test-form">
+        <label for="upost-id">Id: <input type="text" id="upost-id" ng-model='updateId'> </label><br>
+        <label for="upost-title">Title: <input type="text" id="upost-title" ng-model='updatedPost.title'> </label><br>
+        <label for="upost-author">Author: <input type="text" id="upost-author" ng-model='updatedPost.author'> </label><br>
+        <label for="upost-body">Body: <textarea cols="30" rows="10" type="text" id="upost-body" ng-model='updatedPost.body'></textarea> </label><br>
+        <button ng-click='update(updateId, updatedPost)'>Update Post</button>
+      </div>
+      <div class="test-form">
+
         <pre>
           {{ posts | json }}
         </pre>

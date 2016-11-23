@@ -8,6 +8,8 @@
     $scope.posts = PostService.getAll();
     $scope.create = createPost;
     $scope.delete = deletePost;
+    $scope.getOne = getPost;
+    $scope.update = updatePost;
 
     $scope.$watch(function(){
       return PostService.getAll();
@@ -22,6 +24,15 @@
     function deletePost(id) {
       PostService.delete(id);
       $scope.deleteId = '';
+    }
+    function getPost(id) {
+      PostService.getOne(id);
+      $scope.getId = '';
+    }
+    function updatePost(id, updatedPost) {
+      PostService.update(id, updatedPost);
+      $scope.updateId = '';
+      $scope.updatedPost = {};
     }
   }
 }());

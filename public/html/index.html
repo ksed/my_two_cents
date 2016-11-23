@@ -8,15 +8,22 @@
   </head>
   <body>
     <div ng-controller="MainController">
-      <div>
-        <label for="title">Title: <input type="text" id="title" ng-model='newPost.title'></label><br>
-        <label for="author">Author: <input type="text" id="author" ng-model='newPost.author'></label><br>
-        <label for="body">Body: <textarea cols="30" rows="10" id="body" ng-model='newPost.body'></textarea></label><br>
-        <button ng-click='createPost(newPost)'>Add New Post</button>
+      <div class="test-form">
+        <label for="post-title">Title: <input type="text" id="post-title" ng-model='newPost.title'></label><br>
+        <label for="post-author">Author: <input type="text" id="post-author" ng-model='newPost.author'></label><br>
+        <label for="post-body">Body: <textarea cols="30" rows="10" id="post-body" ng-model='newPost.body'></textarea></label><br>
+        <button ng-click='create(newPost)'>Add New Post</button>
       </div>
-      <pre>
-        {{ posts | json }}
-      </pre>
+      <div class="test-form">
+        <label for="post-id">ID: <input type="text" id="post-id" ng-model='deleteId'> </label>
+        <button ng-click='delete(deleteId)'>Remove Post</button>
+      </div>
+      <div class="test-form">
+        <h4>My Posts:</h4>
+        <pre>
+          {{ posts | json }}
+        </pre>
+      </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>

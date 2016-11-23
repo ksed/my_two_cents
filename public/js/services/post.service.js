@@ -32,7 +32,6 @@
     function create(newPost) {
       $http.post(baseUrl, newPost)
           .then(function(res) {
-            posts.push(newPost);
             init();
           })
           .catch(function(err) {
@@ -40,6 +39,14 @@
           });
     }
     function update(id, newPostData) {}
-    function deleteOne(id) {}
+    function deleteOne(id) {
+      $http.delete(baseUrl + id)
+          .then(function(res) {
+            init();
+          })
+          .catch(function(err) {
+            console.log(err);
+          });
+    }
   }
 }());

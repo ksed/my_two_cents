@@ -9,6 +9,7 @@
     $scope.create = createPost;
     $scope.delete = deletePost;
     $scope.getOne = getPost;
+    $scope.getSelectedPost = getSelectedPost;
     $scope.update = updatePost;
 
     $scope.$watch(function(){
@@ -28,6 +29,9 @@
     function getPost(id) {
       PostService.getOne(id);
       $scope.getId = '';
+    }
+    function getSelectedPost() {
+      $scope.selectedPost = PostService.getSelectedPost();
     }
     function updatePost(id, updatedPost) {
       PostService.update(id, updatedPost);

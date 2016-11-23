@@ -20,7 +20,9 @@
       </div>
       <div class="test-form">
         <label for="gpost-id">ID to get: <input type="text" id="gpost-id" ng-model='getId'> </label>
-        <button ng-click='getOne(getId)'>Get Post</button>
+        <button ng-click='getOne(getId)'>Get Post</button><br>
+        {{selectedPost}}
+        <button ng-click='getSelectedPost()'>Get Selected</button>
       </div>
       <div class="test-form">
         <label for="upost-id">Id: <input type="text" id="upost-id" ng-model='updateId'> </label><br>
@@ -30,7 +32,6 @@
         <button ng-click='update(updateId, updatedPost)'>Update Post</button>
       </div>
       <div class="test-form">
-
         <pre>
           {{ posts | json }}
         </pre>

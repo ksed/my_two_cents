@@ -6,6 +6,7 @@
 
   function PostService($http) {
     var posts = [];
+    var selectedPost;
     var baseUrl = '/posts/';
     init();
     return {
@@ -13,7 +14,8 @@
       getOne: getOne,
       create: create,
       update: update,
-      delete: deleteOne
+      delete: deleteOne,
+      getSelectedPost: getSelectedPost
     };
 
     function init() {
@@ -31,7 +33,7 @@
     function getOne(id) {
       $http.get(baseUrl + id)
           .then(function(res) {
-            posts = res.data;
+            selectedPost = res.data.post[0];
           })
           .catch(function(res) {
             console.log(err);
@@ -63,6 +65,9 @@
           .catch(function(err) {
             console.log(err);
           });
+    }
+    function getSelectedPost() {
+      return selectedPost;
     }
   }
 }());

@@ -2,6 +2,7 @@ var express = require('express');
 var server = express();
 var mongoose = require('mongoose');
 var postRouter = require('./server/routers/post.router.js');
+var userRouter = require('./server/routers/user.router.js');
 var bodyParser = require('body-parser');
 
 // Configuration
@@ -22,6 +23,7 @@ server.get('/', function(req, res) {
 });
 
 server.use(postRouter);
+server.use(userRouter);
 
 server.listen(port, function() {
   console.log('Now listening on port: ' + port);

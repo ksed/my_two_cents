@@ -15,7 +15,17 @@ router.get('/users/profile/:userId', function(req, res) {
   });
 });
 router.post('/users/signup/', function(req, res) {
-
+  var user = new User(req.body);
+  user.save(function(err) {
+    if(err) {
+      return res.status(500).json({
+        err: err
+      });
+    }
+    return res.status(201).json({
+      msg: 'Success!'
+    });
+  });
 });
 router.post('/users/login/', function(req, res) {});
 router.put('/users/profile/:userId', function(req, res) {});

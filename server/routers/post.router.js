@@ -37,7 +37,7 @@ router.post('/posts', function(req, res) {
       });
     }
     return res.status(201).json({
-      msg: 'Sucess!'
+      msg: 'Success!'
     });
   });
 });

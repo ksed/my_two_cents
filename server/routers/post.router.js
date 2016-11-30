@@ -29,7 +29,7 @@ router.get('/posts/:id', function(req, res) {
 router.post('/posts', function(req, res) {
   var post = new Post(req.body);
   post.postDate = new Date();
-  post.summary = req.body.body.slice(0,100) + '...';
+  post.summary = req.body.body.slice(0, 100) + '...';
   post.save(function(err) {
     if(err) {
       return res.status(500).json({
@@ -42,6 +42,9 @@ router.post('/posts', function(req, res) {
   });
 });
 router.put('/posts/:id', function(req, res) {
+  if(req.body.body) { // if the body is updated, update the summary too
+    req.body.summary = req.body.body.slice(0, 100) + "...";
+  }
   Post.findOneAndUpdate({_id: req.params.id}, req.body, function(err, oldPost) {
     if(err) {
       return res.status(500).json({

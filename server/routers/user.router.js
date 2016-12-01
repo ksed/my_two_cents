@@ -16,6 +16,13 @@ router.get('/users/profile/:userId', function(req, res) {
 });
 router.post('/users/signup/', function(req, res) {
   var user = new User(req.body);
+  if(!req.body.password) {
+    return res.status(401).json({
+      msg: 'Bad Request: Signup requires a password'
+    });
+  }
+  //TODO:check to see if email in body, otherwise send error
+  user.setPassword(req.body.password);
   user.save(function(err) {
     if(err) {
       return res.status(500).json({

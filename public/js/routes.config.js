@@ -8,30 +8,51 @@
       $routeProvider
         .when('/', {
           templateUrl: 'html/views/home.html',
-          controller: "HomeController"
+          controller: "HomeController",
+          access: {
+            restricted: false
+          }
         })
         .when('/login', {
           templateUrl: 'html/views/login.html',
-          controller: "LoginController"
+          controller: "LoginController",
+          access: {
+            restricted: false
+          }
         })
         .when('/signup', {
           templateUrl: 'html/views/signup.html',
-          controller: 'SignUpController'
+          controller: 'SignUpController',
+          access: {
+            restricted: false
+          }
         })
         .when('/profile/:username', {
           templateUrl: 'html/views/profile.html',
-          controller: 'ProfileController'
+          controller: 'ProfileController',
+          access: {
+            restricted: true
+          }
         })
         .when('/create', {
           templateUrl: 'html/views/create.html',
-          controller: 'CreateController'
+          controller: 'CreateController',
+          access: {
+            restricted: true
+          }
         })
         .when('/edit/:postId', {
           templateUrl: 'html/views/edit.html',
-          controller: 'EditController'
+          controller: 'EditController',
+          access: {
+            restricted: true
+          }
         })
         .otherwise({
-          redirectTo: '/'
-        })
+          redirectTo: '/',
+          access: {
+            restricted: false
+          }
+        });
     }
 }());

@@ -2,9 +2,9 @@
   angular.module('two-cents')
     .controller("NavigationController", NavigationController);
 
-  NavigationController.$inject = [];
+  NavigationController.$inject = ['$scope', 'AuthService'];
 
-  function NavigationController(){
-    
+  function NavigationController($scope, AuthService) {
+    $scope.isLoggedIn = AuthService.isLoggedIn;
   }
 }());

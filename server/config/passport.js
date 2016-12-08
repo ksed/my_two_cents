@@ -30,11 +30,11 @@ passport.use(new LocalStrategy({
         msg: "User not found"
       });
     }
-    if(!user.validPassword(password){ //If the user provided the incorrect password then pass no error, false for the user, and some data (different message)
+    if(!user.validPassword(password)){ //If the user provided the incorrect password then pass no error, false for the user, and some data (different message)
       return done(null, false, {
         msg: 'Authentication Failed'
       });
-    });
+    }
     return done(null, user); //otherwise, the user is authenticated and pass that information forward
   });
 }));

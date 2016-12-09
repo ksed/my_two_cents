@@ -1,1 +1,21 @@
-<h1>Profile!</h1>
+<navigation></navigation>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3 col-md-offset-6">
+      <h1>Email: <small>{{ user.email }}</small></h1>
+    </div>
+  </div>
+  <div ng-repeat='post in posts' class="row well">
+    <div class='col-md-2'>
+      <img ng-src="post.cover" alt="" ng-if='post.cover' width='35px'>
+      <img ng-src="https://placehold.it/35x35" alt="" ng-if='!post.cover' width='35px'>
+    </div>
+    <div class="col-md-9">
+      <h4><a ng-href="#/edit/{{post._id}}">{{post.title}}</a></h4>
+      <p><em>{{post.summary}}</em></p>
+    </div>
+    <div class="col-md-1">
+      <button class="btn btn-danger btn-sm" ng-click="delete(post.id)">&times;</button>
+    </div>
+  </div>
+</div>

@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var Post = require('../models/post.model.js');
 
+
 router.get('/posts', function(req, res){
   Post.find({}, function(err, posts){
     if(err){

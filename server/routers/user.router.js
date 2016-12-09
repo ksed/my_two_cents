@@ -4,18 +4,24 @@ var router = express.Router();
 var User = require('../models/user.model.js');
 var passport = require('passport');
 
-router.get('/users/profile/:userId', function(req, res){
-  User.find({ _id: req.params.userId }, function(err, user){
-    if(err){
-      return res.status(500).json({
-        err: err
-      });
-    }
-    return res.status(200).json({
-      user: user
-    });
-  });
-});
+/**
+  This route is great to populate a profile or bio page, but at current
+  implementation it would send all of the information so this is not good to
+  be available to everyone. This should be protected or only if you remove
+  the information that should remain private.
+*/
+// router.get('/users/profile/:userId', function(req, res){
+//   User.find({ _id: req.params.userId }, function(err, user){
+//     if(err){
+//       return res.status(500).json({
+//         err: err
+//       });
+//     }
+//     return res.status(200).json({
+//       user: user
+//     });
+//   });
+// });
 router.post('/users/signup', function(req, res){
   var user = new User(req.body);
   if(!req.body.password){
@@ -58,6 +64,11 @@ router.post('/users/login', function(req, res){
     });
   })(req, res);
 });
-router.put('/users/profile/:userId', function(req, res){});
+/**
+  This route would be needed to update features such as password, age,
+  as well as profile pictures, bios, etc. However, those features are
+  not implemented at current time.
+*/
+// router.put('/users/profile/:userId', function(req, res){});
 
 module.exports = router;

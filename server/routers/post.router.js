@@ -55,14 +55,14 @@ router.put('/posts/:id', function(req, res){
     return res.status(200).json({
       msg: oldPost
     });
-  })
+  });
 });
 router.delete('/posts/:id', function(req, res){
   Post.findOneAndRemove({_id: req.params.id}, function(err, deletedPost){
     if(err){
       return res.status(500).json({
         msg: err
-      })
+      });
     }
     return res.status(200).json({
       msg: deletedPost

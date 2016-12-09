@@ -28,7 +28,7 @@
                    })
                    .catch(function(err){
                      console.log(err);
-                   });;
+                   });
       } else {
         $location.path('/edit/' + $routeParams.postId);
       }

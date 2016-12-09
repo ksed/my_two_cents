@@ -14,7 +14,7 @@
       return PostService.getAll();
     }, function(){
       $scope.posts =  PostService.getPostsByUserId(userId);
-    })
+    });
 
 
     function deletePost(id){

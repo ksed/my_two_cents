@@ -8,15 +8,15 @@
     $scope.signup = signup;
     $scope.required = true;
 
-    function signup(newUser) {
+    function signup(newUser){
       AuthService.signup(newUser)
-                .then(function() {
-                  $location.path('/login');
-                })
-                .catch(function() {
-                  $scope.newUser = {};
-                  $location.path('/signup');
-                });
+          .then(function(){
+            $location.path('/login');
+          })
+          .catch(function(){
+            $scope.newUser = {};
+            $location.path('/signup');
+          });
     }
   }
 }());

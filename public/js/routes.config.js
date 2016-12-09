@@ -50,7 +50,7 @@
         })
         .otherwise({
           redirectTo: '/',
-          access: {
+          access:{
             restricted: false
           }
         });

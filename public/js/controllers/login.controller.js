@@ -8,15 +8,17 @@
     $scope.login = login;
     $scope.required = true;
 
-    function login(user) {
+    function login(user){
       AuthService.login(user)
-          .then(function() {
-            $location.path('/');
-          })
-          .catch(function() {
-            $scope.user = {};
-            $location.path('/login');
-          });
+        .then(function(){
+          $location.path('/');
+        })
+        .catch(function(){
+          //at this point you should communicate with the user about the error
+          // we are not going to in the sake of time
+          $scope.user = {};
+          $location.path('/login');
+        });
     }
   }
 }());

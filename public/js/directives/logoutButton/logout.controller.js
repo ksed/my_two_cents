@@ -6,8 +6,8 @@
 
   function LogoutController($scope, AuthService, $location){
     $scope.logout = logout;
-    function logout() {
-      console.log('Logging out...');
+    function logout(){
+      console.log('Logging out!');
       AuthService.logout();
       $location.path('/login');
     }

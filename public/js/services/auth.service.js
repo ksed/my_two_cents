@@ -17,7 +17,8 @@
     };
 
     function currentUser(){
-      if(isLoggedIn()) {
+      // grabbing _id would be very similar to this
+      if(isLoggedIn()){
         var token = getToken();
         var payload = token.split('.')[1];
         payload = $window.atob(payload);
@@ -39,12 +40,12 @@
     function isLoggedIn(){
       var token = getToken();
       var payload;
-      if(token) {
+      if(token){
         payload = token.split('.')[1];
-        payload = $window.atob(payload); // unserializes payload to string json
+        payload = $window.atob(payload);
         payload = JSON.parse(payload);
 
-        return payload.exp > Date.now()/1000; // compares exp-date to right now.
+        return payload.exp > Date.now() / 1000; //comparing the expiration date of our token to right now
       } else {
         return false;
       }
@@ -54,8 +55,8 @@
     }
     function login(user){
       return $http.post('/users/login', user)
-                  .then(function(res) {
-                    var token = res.data.token;
+                  .then(function(response){
+                    var token = response.data.token;
                     saveToken(token);
                   });
     }

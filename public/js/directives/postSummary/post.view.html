@@ -1,1 +1,10 @@
-<h1>Post</h1>
+<div class="row well">
+  <div class='col-md-2'>
+    <img ng-src="data.cover" alt="" ng-if='data.cover' width='35px'>
+    <img ng-src="https://placehold.it/35x35" alt="" ng-if='!data.cover' width='35px'>
+  </div>
+  <div class="col-md-9">
+    <h4><a ng-href="#/edit/{{data._id}}">{{data.title}}</a></h4>
+    <p><em>{{data.summary}}</em></p>
+  </div>
+</div>

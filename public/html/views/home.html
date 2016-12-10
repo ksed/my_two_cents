@@ -2,7 +2,7 @@
 <h2>Welcome to My Two Cents</h2>
 <div class="container">
   <div ng-if='recentPosts.length > 0'>
-    <!-- <post-summary ng-repeat="post in recentPosts" data=post></post-summary> -->
+    <post-summary ng-repeat="post in recentPosts" data=post></post-summary>
   </div>
   <div ng-if="recentPosts.length < 0">
     Loading some posts....

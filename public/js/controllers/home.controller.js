@@ -15,7 +15,9 @@
     });
 
     function getMostRecentPosts(allPosts){
-      
+      return allPosts.sort(function(first, second) {
+        return first.postDate > second.postDate;
+      }).slice(0, 5);
     }
   }
 }());
